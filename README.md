@@ -1,4 +1,4 @@
-# <img width="35" height="35" alt="SonicGuardian Logo" src="https://raw.githubusercontent.com/ombaviskar18/SonicGaurdian/main/frontend/public/logos/logo.png" />SonicGuardian
+# <img width="35" height="35" alt="SonicGuardian Logo" src="https://raw.githubusercontent.com/ombaviskar18/SonicGuardian/main/frontend/public/logos/logo.png" />SonicGuardian
 
 <div align="center">
   <video width="800" height="450" autoplay loop muted style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
