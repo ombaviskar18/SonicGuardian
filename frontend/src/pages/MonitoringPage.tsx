@@ -5,7 +5,7 @@ import { useWallet } from '../hooks/useWallet';
 import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { Chart as ChartJS, ArcElement, Tooltip as ChartTooltip, Legend, CategoryScale, LinearScale, BarElement, Title, DoughnutController } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
-import { contractService, switchToZetaChain } from '../utils/contracts';
+import { contractService, switchToSonic as switchToZetaChain } from '../utils/contracts';
 import './MonitoringPage.css';
 
 ChartJS.register(ArcElement, ChartTooltip, Legend, CategoryScale, LinearScale, BarElement, Title, DoughnutController);
@@ -311,17 +311,17 @@ export function MonitoringPage() {
     setError('');
 
     try {
-      // Connect to wallet and switch to ZetaChain
+      // Connect to wallet and switch to SonicChain
       const connected = await contractService.connect();
       if (!connected) {
         setError('Failed to connect wallet. Please ensure MetaMask is installed.');
         return;
       }
 
-      // Switch to ZetaChain network
+      // Switch to SonicChain network
       const switched = await switchToZetaChain();
       if (!switched) {
-        setError('Failed to switch to ZetaChain network. Please add ZetaChain to MetaMask.');
+        setError('Failed to switch to SonicChain network. Please add Sonic Testnet to MetaMask.');
         return;
       }
 

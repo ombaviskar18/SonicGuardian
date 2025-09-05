@@ -7,12 +7,12 @@ import { Button } from './components/Button';
 import { IconReceived, IconSpinner } from './components/icons';
 import {
   type SupportedChain,
-  ZETACHAIN_ATHENS_BLOCKSCOUT_EXPLORER_URL,
+  SONIC_TESTNET_EXPLORER_URL as ZETACHAIN_ATHENS_BLOCKSCOUT_EXPLORER_URL,
 } from './constants/chains';
 import { type CrossChainTxResponse } from './types/cctx';
 
 const CCTX_POLLING_URL =
-  'https://zetachain-athens.blockpi.network/lcd/v1/public/zeta-chain/crosschain/inboundHashToCctxData';
+  'https://rpc.testnet.soniclabs.com';
 
 interface ConfirmedContentProps {
   supportedChain: SupportedChain | undefined;
@@ -37,35 +37,9 @@ export function ConfirmedContent({
     return stringValue;
   }, [stringValue]);
 
-  // Poll for the ZetaChain transaction status every 15 seconds
+  // Polling placeholder (disabled for Sonic)
   useEffect(() => {
-    if (!connectedChainTxHash || zetachainTxHash) {
-      return;
-    }
-
-    const poll = async () => {
-      try {
-        const response = await fetch(
-          `${CCTX_POLLING_URL}/${connectedChainTxHash}`
-        );
-        if (response.ok) {
-          const data = (await response.json()) as CrossChainTxResponse;
-          const txHash = data.CrossChainTxs?.[0]?.outbound_params?.[0]?.hash;
-          if (txHash) {
-            setZetachainTxHash(txHash);
-          }
-        }
-      } catch (error) {
-        console.error('Polling error:', error);
-      }
-    };
-
-    poll();
-    const intervalId = setInterval(poll, 15000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
+    setZetachainTxHash(connectedChainTxHash || null);
   }, [connectedChainTxHash, zetachainTxHash]);
 
   return (
@@ -103,7 +77,7 @@ export function ConfirmedContent({
                 'confirmed-content-link-disabled': !zetachainTxHash,
               })}
             >
-              View on ZetaChain
+              View on SonicChain
             </a>
           </div>
         )}

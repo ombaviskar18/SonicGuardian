@@ -33,4 +33,4 @@ const IconZetaChainLogo = ({
   );
 };
 
-export { IconZetaChainLogo };
+export { IconZetaChainLogo as IconSonicChainLogo };

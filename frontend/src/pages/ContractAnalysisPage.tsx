@@ -4,7 +4,7 @@ import { Shield, Scan, AlertTriangle, CheckCircle, Download, Wallet, Search, Bra
 import { useWallet } from '../hooks/useWallet';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
-import { contractService, switchToZetaChain } from '../utils/contracts';
+import { contractService, switchToSonic as switchToZetaChain } from '../utils/contracts';
 import './ContractAnalysisPage.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
@@ -61,7 +61,7 @@ export function ContractAnalysisPage() {
       // Switch to ZetaChain network
       const switched = await switchToZetaChain();
       if (!switched) {
-        setErrorMessage('Failed to switch to ZetaChain network. Please add ZetaChain to MetaMask.');
+        setErrorMessage('Failed to switch to SonicChain network. Please add Sonic Testnet to MetaMask.');
         return;
       }
 
@@ -379,7 +379,7 @@ export function ContractAnalysisPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="analysis-hero-description"
               >
-                Comprehensive security evaluation powered by ZetaChain's cross-chain capabilities and advanced AI analysis. 
+                Comprehensive security evaluation powered by SonicChain and advanced AI analysis. 
                 Detect vulnerabilities, honeypots, and malicious patterns before you invest.
               </motion.p>
 
