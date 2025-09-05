@@ -120,17 +120,17 @@ export function SocialAnalysisPage() {
     setIsAnalyzing(true);
     setErrorMessage('');
     try {
-      // Connect to wallet and switch to Sonic Testnet
+      // Connect to wallet and switch to ZetaChain
       const connected = await contractService.connect();
       if (!connected) {
         setErrorMessage('Failed to connect wallet. Please ensure MetaMask is installed Connect it properly.');
         return;
       }
 
-      // Switch to Sonic Testnet network
+      // Switch to ZetaChain network
       const switched = await switchToZetaChain();
       if (!switched) {
-        setErrorMessage('Failed to switch to Sonic Testnet. Please add Sonic to MetaMask.');
+        setErrorMessage('Failed to switch to ZetaChain network. Please add ZetaChain to MetaMask.');
         return;
       }
 
@@ -258,7 +258,7 @@ export function SocialAnalysisPage() {
     } catch (err: any) {
       console.error('Error during social analysis:', err);
       if (err.message && err.message.includes('Payment')) {
-        setErrorMessage('Payment required: You need at least 1 S token to use this feature.');
+        setErrorMessage('Payment required: Please ensure you have 0.01 aZETA and approve the transaction.');
       } else if (err.message && err.message.includes('user rejected')) {
         setErrorMessage('Transaction was rejected. Please try again and approve the payment.');
       } else {

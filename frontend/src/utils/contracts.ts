@@ -1,40 +1,44 @@
 import { ethers } from 'ethers';
 import { SONIC_GUARDIAN_CONTRACTS } from '../constants/contracts';
 
-// Contract addresses from deployment
-export const CONTRACT_ADDRESSES = {
-  ContractAnalysis: SONIC_GUARDIAN_CONTRACTS.ContractAnalysis,
-  Tokenomics: SONIC_GUARDIAN_CONTRACTS.Tokenomics,
-  SocialAnalysis: SONIC_GUARDIAN_CONTRACTS.SocialAnalysis,
-  Monitoring: SONIC_GUARDIAN_CONTRACTS.Monitoring,
-  SToken: SONIC_GUARDIAN_CONTRACTS.SToken,
-  Universal: SONIC_GUARDIAN_CONTRACTS.Universal,
-};
+// Contract addresses from deployment (Sonic Testnet)
+export const CONTRACT_ADDRESSES = SONIC_GUARDIAN_CONTRACTS;
 
-// Network configuration
+// Network configuration (Sonic Testnet)
 export const NETWORK_CONFIG = {
   name: "Sonic Testnet",
   rpcUrl: "https://rpc.testnet.soniclabs.com",
   chainId: 14601,
   currency: "S",
-  explorer: "https://testnet.soniclabs.com",
+  explorer: "https://testnet.soniclabs.com"
 };
 
 // Contract ABIs (simplified for the main functions)
 export const CONTRACT_ABI = [
-  // Request analysis (no native value; S token is deducted inside)
+  // Request analysis using S token (no native value)
   "function requestContractAnalysis(string contractAddress) external",
   "function requestTokenomicsAnalysis(string tokenAddress) external",
   "function requestSocialAnalysis(string projectName) external",
   "function requestMonitoring(string targetAddress) external",
+  
 
+  
   // Get user requests
-  "function getUserRequests(address user) external view returns (tuple(address user, string contractAddress, uint256 payment, bool completed, uint256 riskScore, string analysis, uint256 timestamp)[])",
-
-  // Introspection helpers
-  "function getSTokenAddress() external view returns (address)",
-  "function getContractSTokenBalance() external view returns (uint256)",
-  "function getUserSTokenBalance(address user) external view returns (uint256)",
+  "function getUserRequests(address user) external view returns (tuple(address user, string target, uint256 payment, bool completed, uint256 riskScore, string analysis, uint256 timestamp)[])",
+  
+  // Events
+  "event ContractAnalysisRequested(address indexed user, string contractAddress, uint256 payment)",
+  "event TokenomicsAnalysisRequested(address indexed user, string tokenAddress, uint256 payment)",
+  "event SocialAnalysisRequested(address indexed user, string projectName, uint256 payment)",
+  "event MonitoringRequested(address indexed user, string targetAddress, uint256 payment)",
+  
+  "event ContractAnalysisCompleted(address indexed user, string contractAddress, uint256 riskScore, string analysis)",
+  "event TokenomicsAnalysisCompleted(address indexed user, string tokenAddress, uint256 riskScore, string analysis)",
+  "event SocialAnalysisCompleted(address indexed user, string projectName, uint256 riskScore, string analysis)",
+  "event MonitoringCompleted(address indexed user, string targetAddress, uint256 riskScore, string analysis)",
+  
+  "event PaymentReceived(address indexed user, uint256 amount)",
+  "event AlertTriggered(address indexed user, string targetAddress, string alertType, string message)"
 ];
 
 // Contract interaction utilities
@@ -102,18 +106,6 @@ export class ContractService {
     return await tx.wait();
   }
 
-  async checkPaymentStatus(contractType: 'ContractAnalysis' | 'Tokenomics' | 'SocialAnalysis' | 'Monitoring', userAddress: string) {
-    if (!this.provider) throw new Error("Provider not connected");
-    
-    const contract = new ethers.Contract(
-      CONTRACT_ADDRESSES[contractType],
-      CONTRACT_ABI,
-      this.provider
-    );
-
-    return await contract.checkPaymentStatus(userAddress);
-  }
-
   async getUserRequests(contractType: 'ContractAnalysis' | 'Tokenomics' | 'SocialAnalysis' | 'Monitoring', userAddress: string) {
     if (!this.provider) throw new Error("Provider not connected");
     
@@ -145,7 +137,7 @@ export const formatEther = (wei: bigint) => ethers.formatEther(wei);
 export const parseEther = (ether: string) => ethers.parseEther(ether);
 
 // Network switching utility
-export async function switchToZetaChain() {
+export async function switchToSonic() {
   if (typeof window.ethereum !== 'undefined') {
     try {
       await window.ethereum.request({
@@ -182,3 +174,6 @@ export async function switchToZetaChain() {
   }
   return false;
 }
+
+// Backward-compatible alias
+export const switchToZetaChain = switchToSonic;

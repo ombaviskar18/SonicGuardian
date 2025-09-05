@@ -35,7 +35,7 @@ contract SToken is ERC20Pausable, Ownable, ReentrancyGuard {
         _;
     }
     
-    constructor() ERC20("Sonic Token", "S") Ownable(msg.sender) {
+    constructor() ERC20("SonicGuardian Token", "SGS") Ownable(msg.sender) {
         _mint(msg.sender, INITIAL_SUPPLY);
     }
     

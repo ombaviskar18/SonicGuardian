@@ -58,10 +58,10 @@ export function ContractAnalysisPage() {
         return;
       }
 
-      // Switch to Sonic Testnet network
+      // Switch to ZetaChain network
       const switched = await switchToZetaChain();
       if (!switched) {
-        setErrorMessage('Failed to switch to Sonic Testnet. Please add Sonic to MetaMask.');
+        setErrorMessage('Failed to switch to ZetaChain network. Please add ZetaChain to MetaMask.');
         return;
       }
 
@@ -95,7 +95,7 @@ export function ContractAnalysisPage() {
       console.error('Error during contract analysis:', e);
       setScanResult(null);
       if (e.message && e.message.includes('Payment')) {
-        setErrorMessage('Payment required: You need at least 1 S token to use this feature.');
+        setErrorMessage('Payment required: Please ensure you have 0.01 aZETA and approve the transaction.');
       } else if (e.message && e.message.includes('user rejected')) {
         setErrorMessage('Transaction was rejected. Please try again and approve the payment.');
       } else {
