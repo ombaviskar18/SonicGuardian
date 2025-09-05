@@ -1,8 +1,8 @@
-# <img width="35" height="35" alt="SonicGuardian Logo" src="https://raw.githubusercontent.com/ombaviskar18/ZetaGaurdian/main/frontend/public/logos/logo.png" />SonicGuardian
+# <img width="35" height="35" alt="SonicGuardian Logo" src="https://raw.githubusercontent.com/ombaviskar18/SonicGaurdian/main/frontend/public/logos/logo.png" />SonicGuardian
 
 <div align="center">
   <video width="800" height="450" autoplay loop muted style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-    <source src="https://raw.githubusercontent.com/ombaviskar18/ZetaGaurdian/main/frontend/public/logos/herovideo.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/ombaviskar18/SonicGaurdian/main/frontend/public/logos/herovideo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   
@@ -97,8 +97,8 @@ graph TB
 ### **Installation**
 ```bash
 # Clone & install
-git clone <repository-url>
-cd ZetaGaurdian
+git clone https://github.com/ombaviskar18/SonicGaurdian.git
+cd SonicGaurdian
 npm install
 cd frontend && npm install
 cd ../api && npm install
@@ -265,7 +265,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 - 📚 **Documentation**: Check code comments and inline docs
-- 🐛 **Issues**: Report bugs via [GitHub Issues](https://github.com/your-repo/issues)
+- 🐛 **Issues**: Report bugs via [GitHub Issues](https://github.com/ombaviskar18/SonicGaurdian/issues)
 - 💬 **Discussions**: Join community discussions
 - 📱 **Telegram**: [@Social_Alertbot](https://t.me/Social_Alertbot)
 
@@ -293,7 +293,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   **💰 Token**: SGS (0x7ba0f1BA2F61aB8190200C20b7755C56292C5728)  
   **🚀 Live Demo**: [sonic-guardian.vercel.app](https://sonic-guardian.vercel.app)
   
-  [![GitHub stars](https://img.shields.io/github/stars/ombaviskar18/ZetaGaurdian?style=social)](https://github.com/ombaviskar18/ZetaGaurdian)
-  [![GitHub forks](https://img.shields.io/github/forks/ombaviskar18/ZetaGaurdian?style=social)](https://github.com/ombaviskar18/ZetaGaurdian)
-  [![GitHub issues](https://img.shields.io/github/issues/ombaviskar18/ZetaGaurdian)](https://github.com/ombaviskar18/ZetaGaurdian/issues)
+  [![GitHub stars](https://img.shields.io/github/stars/ombaviskar18/SonicGaurdian?style=social)](https://github.com/ombaviskar18/SonicGaurdian)
+  [![GitHub forks](https://img.shields.io/github/forks/ombaviskar18/SonicGaurdian?style=social)](https://github.com/ombaviskar18/SonicGaurdian)
+  [![GitHub issues](https://img.shields.io/github/issues/ombaviskar18/SonicGaurdian)](https://github.com/ombaviskar18/SonicGaurdian/issues)
 </div>
