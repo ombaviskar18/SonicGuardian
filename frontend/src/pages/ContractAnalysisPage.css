@@ -1579,7 +1579,7 @@
   
   /* Print header */
   .results-header::before {
-    content: "ZetaGuardian - Smart Contract Security Analysis Report";
+    content: "SonicGuardian - Smart Contract Security Analysis Report";
     display: block;
     font-size: 24px;
     font-weight: bold;

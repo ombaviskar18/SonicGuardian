@@ -303,7 +303,7 @@
 }
 
 /* Adjust central logo position for the new grid size */
-.zetachain-central-logo {
+.sonicchain-central-logo {
   position: absolute;
   top: 240px; /* Adjusted slightly up */
   left: 248px; /* Adjusted slightly left */
@@ -356,13 +356,13 @@
   left: 45px; /* Adjusted */
 }
 
-.zetachain-logo {
+.sonicchain-logo {
   width: 48px;
   height: 48px;
   object-fit: contain;
 }
 
-.zetachain-label {
+.sonicchain-label {
   font-size: 0.875rem;
   font-weight: 700;
   color: #3b82f6;
@@ -859,8 +859,8 @@ html {
   margin: 2rem 0;
 }
 
-/* ZetaChain Workflow Section */
-.zetachain-workflow {
+/* SonicChain Workflow Section */
+.sonicchain-workflow {
   padding: 6rem 0;
   position: relative;
   z-index: 2;
@@ -1148,7 +1148,7 @@ html {
     height: 70px;
   }
   
-  .zetachain-central-logo {
+  .sonicchain-central-logo {
     width: 100px;
     height: 100px;
   }
@@ -1195,12 +1195,12 @@ html {
     height: 24px;
   }
   
-  .zetachain-central-logo {
+  .sonicchain-central-logo {
     width: 80px;
     height: 80px;
   }
   
-  .zetachain-logo {
+  .sonicchain-logo {
     width: 32px;
     height: 32px;
   }

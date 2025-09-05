@@ -1,30 +1,32 @@
-# <img width="35" height="35" alt="Untitled design (4)" src="https://github.com/user-attachments/assets/4f8b03c7-01a7-4845-abf4-3feb5c08f4cc" />SonicGuardian
+# <img width="35" height="35" alt="SonicGuardian Logo" src="https://raw.githubusercontent.com/ombaviskar18/ZetaGaurdian/main/frontend/public/logos/logo.png" />SonicGuardian
 
 <div align="center">
   <video width="800" height="450" autoplay loop muted style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-    <source src="https://raw.githubusercontent.com/ombaviskar18/ZetaGaurdian/main/hello/public/logos/heroivideo.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/ombaviskar18/ZetaGaurdian/main/frontend/public/logos/herovideo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   
-  **DeFi Security & Analysis Platform**
+  **🚀 DeFi Security & Analysis Platform on Sonic Network**
   
-  *Real-time contract analysis, social sentiment tracking, and automated monitoring for DeFi investors*
+  *Real-time contract analysis, social sentiment tracking, and automated monitoring powered by SGS tokens*
   
   [![Sonic](https://img.shields.io/badge/Built%20on-Sonic-purple)](https://soniclabs.com)
   [![React](https://img.shields.io/badge/Frontend-React-blue)](https://reactjs.org)
   [![Vercel](https://img.shields.io/badge/Deployed-Vercel-black)](https://vercel.com)
   [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+  [![Chain ID](https://img.shields.io/badge/Chain%20ID-14601-blue)](https://testnet.soniclabs.com)
 </div>
 
 ## 🚀 Features
 
-| Feature | Description |
-|---------|-------------|
-| 🔍 **Contract Analysis** | Smart contract security audit, risk assessment, ABI analysis with AI insights |
-| 📊 **Social Analysis** | Real-time news integration, sentiment analysis, SWOT analysis, Telegram bot alerts |
-| 📈 **Tokenomics Analysis** | Market data, supply analysis, whale tracking, portfolio analysis |
-| ⚡ **Real-time Monitoring** | Live token tracking, price alerts, AI predictions, interactive charts |
-| 🎨 **Modern UI/UX** | Responsive design, print reports, mobile optimized, real-time updates |
+| Feature | Description | Cost |
+|---------|-------------|------|
+| 🔍 **Contract Analysis** | Smart contract security audit, risk assessment, ABI analysis with AI insights | 1 SGS Token |
+| 📊 **Social Analysis** | Real-time news integration, sentiment analysis, SWOT analysis, Telegram bot alerts | 1 SGS Token |
+| 📈 **Tokenomics Analysis** | Market data, supply analysis, whale tracking, portfolio analysis | 1 SGS Token |
+| ⚡ **Real-time Monitoring** | Live token tracking, price alerts, AI predictions, interactive charts | 1 SGS Token |
+| 💬 **Universal Messaging** | Cross-chain messaging and communication system | 1 SGS Token |
+| 🎨 **Modern UI/UX** | Responsive design, print reports, mobile optimized, real-time updates | Free |
 
 ## 🏗️ Architecture
 
@@ -51,12 +53,10 @@ graph TB
         N[Gemini AI] --> H
     end
     
-    subgraph "Blockchain"
-        O[Ethereum] --> G
-        P[Base] --> G
-        Q[Polygon] --> G
-        R[BSC] --> G
-        S[Avalanche] --> G
+    subgraph "Blockchain (Sonic Network)"
+        O[Sonic Testnet] --> G
+        P[Chain ID: 14601] --> G
+        Q[RPC: rpc.testnet.soniclabs.com] --> G
     end
     
     subgraph "Smart Contracts (Sonic Network)"
@@ -64,7 +64,8 @@ graph TB
         U[SocialAnalysis.sol]
         V[Tokenomics.sol]
         W[Monitoring.sol]
-        X[SToken.sol]
+        X[Universal.sol]
+        Y[SToken.sol - SGS Token]
     end
     
     B --> F
@@ -79,7 +80,8 @@ graph TB
 |-------|------------|
 | **Frontend** | React 19, TypeScript, Vite, Framer Motion, Chart.js |
 | **Backend** | Node.js, Express.js, Vercel Functions, Axios |
-| **Blockchain** | Sonic Network, Solidity, Hardhat, Ethers.js |
+| **Blockchain** | Sonic Network (Chain ID: 14601), Solidity 0.8.26, Hardhat, Ethers.js |
+| **Token System** | SGS Token (ERC-20), 1 token per feature, MetaMask integration |
 | **APIs** | Google News, CoinGecko, Gemini AI, Telegram Bot |
 | **Deployment** | Vercel, GitHub Actions |
 
@@ -88,13 +90,15 @@ graph TB
 ### **Prerequisites**
 - Node.js 18+
 - MetaMask wallet
+- Sonic Testnet S tokens (for gas fees)
+- SGS tokens (for feature usage)
 - API keys (see [Setup Guide](VERCEL_ENV_SETUP.md))
 
 ### **Installation**
 ```bash
 # Clone & install
 git clone <repository-url>
-cd hello
+cd ZetaGaurdian
 npm install
 cd frontend && npm install
 cd ../api && npm install
@@ -103,6 +107,17 @@ cd ../api && npm install
 npm run dev --prefix frontend  # Frontend
 npm run server                 # Backend
 ```
+
+### **SGS Token Setup**
+1. **Add SGS Token to MetaMask:**
+   - Contract Address: `0x7ba0f1BA2F61aB8190200C20b7755C56292C5728`
+   - Symbol: `SGS`
+   - Decimals: `18`
+
+2. **Get SGS Tokens:**
+   - Each feature costs exactly 1 SGS token
+   - Contact deployer for initial SGS tokens
+   - Native S tokens used only for gas fees
 
 ### **Live Demo**
 🌐 **[https://sonic-guardian.vercel.app](https://sonic-guardian.vercel.app)**
@@ -141,8 +156,24 @@ graph LR
 
 ### **Smart Contracts**
 ```bash
+# Compile contracts
 npx hardhat compile
-npx hardhat deploy --network sonic
+
+# Deploy to Sonic Testnet
+npx hardhat run scripts/deploy-sonic.ts --network sonic
+
+# Test contracts
+npx hardhat run scripts/test-contracts.ts --network sonic
+```
+
+### **Deployed Contract Addresses (Sonic Testnet)**
+```
+SToken (SGS): 0x7ba0f1BA2F61aB8190200C20b7755C56292C5728
+ContractAnalysis: 0x3a0B68b62Ae686D49cFe4ED15F903337557A26a4
+Tokenomics: 0x48a471675A98FB98e70989C55c785aaFd75Aa67a
+SocialAnalysis: 0xa4916233f1FF28C638E987a1bDc8d03bDdf92d98
+Monitoring: 0x3523675708a44f68e19B390471a5ddC87E985f06
+Universal: 0xaa71b81373d21496073c089c7D54a24b28CD1e1b
 ```
 
 ## 📱 Usage
@@ -172,10 +203,18 @@ graph TD
 ```
 
 ### **Quick Actions**
-- 🔍 **Contract Analysis**: Enter address → Get security score
-- 📊 **Social Analysis**: Enter symbol → View sentiment & news
-- 📈 **Tokenomics**: Enter token → Analyze supply & metrics
-- ⚡ **Monitoring**: Enter token → Track live data
+- 🔍 **Contract Analysis**: Enter address → Pay 1 SGS → Get security score
+- 📊 **Social Analysis**: Enter symbol → Pay 1 SGS → View sentiment & news
+- 📈 **Tokenomics**: Enter token → Pay 1 SGS → Analyze supply & metrics
+- ⚡ **Monitoring**: Enter token → Pay 1 SGS → Track live data
+- 💬 **Universal Messaging**: Send message → Pay 1 SGS → Cross-chain communication
+
+### **SGS Token Economics**
+- **Total Supply**: 1,000,000 SGS tokens
+- **Feature Cost**: 1 SGS token per analysis
+- **Gas Fees**: Paid in native S tokens
+- **Token Standard**: ERC-20 compatible
+- **Network**: Sonic Testnet (Chain ID: 14601)
 
 ## 🔧 Configuration
 
@@ -200,7 +239,9 @@ graph TD
 - 📊 Comprehensive risk scoring & assessment
 - ⚡ Real-time monitoring & threat detection
 - 🤖 AI-powered security insights
-- 🌐 Multi-chain security analysis
+- 🌐 Sonic Network native security analysis
+- 💰 SGS token-based access control
+- 🔒 Pausable contracts for emergency stops
 
 ### **Key Benefits**
 | User Type | Benefits |
@@ -230,12 +271,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🚀 Roadmap
 
-- [ ] Advanced AI Models & Enhanced predictions
-- [ ] Additional blockchain support
-- [ ] Native mobile application
-- [ ] API marketplace & third-party integrations
-- [ ] Enterprise-grade institutional features
-- [ ] Direct DeFi protocol analysis
+- [x] **Sonic Network Migration** - Complete migration from ZetaChain to Sonic
+- [x] **SGS Token System** - ERC-20 token for feature payments
+- [x] **Smart Contract Deployment** - All contracts deployed to Sonic Testnet
+- [ ] **Advanced AI Models** - Enhanced predictions and analysis
+- [ ] **Sonic Mainnet Support** - Deploy to Sonic mainnet when available
+- [ ] **Native Mobile Application** - iOS and Android apps
+- [ ] **API Marketplace** - Third-party integrations and plugins
+- [ ] **Enterprise Features** - Institutional-grade security tools
+- [ ] **Cross-chain Expansion** - Support for additional EVM chains
+- [ ] **SGS Token Staking** - Earn rewards by staking SGS tokens
 
 ---
 
@@ -244,7 +289,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   
   *SonicGuardian - Your DeFi Security Companion*
   
-  [![GitHub stars](https://img.shields.io/github/stars/your-repo/sonicguardian?style=social)](https://github.com/your-repo/sonicguardian)
-  [![GitHub forks](https://img.shields.io/github/forks/your-repo/sonicguardian?style=social)](https://github.com/your-repo/sonicguardian)
-  [![GitHub issues](https://img.shields.io/github/issues/your-repo/sonicguardian)](https://github.com/your-repo/sonicguardian/issues)
+  **🌐 Network**: Sonic Testnet (Chain ID: 14601)  
+  **💰 Token**: SGS (0x7ba0f1BA2F61aB8190200C20b7755C56292C5728)  
+  **🚀 Live Demo**: [sonic-guardian.vercel.app](https://sonic-guardian.vercel.app)
+  
+  [![GitHub stars](https://img.shields.io/github/stars/ombaviskar18/ZetaGaurdian?style=social)](https://github.com/ombaviskar18/ZetaGaurdian)
+  [![GitHub forks](https://img.shields.io/github/forks/ombaviskar18/ZetaGaurdian?style=social)](https://github.com/ombaviskar18/ZetaGaurdian)
+  [![GitHub issues](https://img.shields.io/github/issues/ombaviskar18/ZetaGaurdian)](https://github.com/ombaviskar18/ZetaGaurdian/issues)
 </div>
